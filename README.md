@@ -11,7 +11,7 @@ O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado 
 
 ## Protótipo
 
-ttps://www.figma.com/file/USOyhD9vYCrHOZiCDcIdXE
+https://www.figma.com/file/USOyhD9vYCrHOZiCDcIdXE
 
 ## Checklist
 
