@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 
 @Component({
@@ -7,8 +7,8 @@ import { initFlowbite } from 'flowbite';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  title = 'mygameshub first page';
-
+  
+  user = 'Marcos';
   ngOnInit(): void {
     initFlowbite();
   }

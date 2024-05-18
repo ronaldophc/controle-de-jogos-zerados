@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html{
-    background-color: black;
+    background-color: #151D27;
 }
 
 .letras {
@@ -29,4 +29,7 @@ html{
 .mygameshub {
     color: #D9D9D9;
     font-family: 'Marko One';
+}
+.font_inter {
+    font-family: 'Inter';
 }
