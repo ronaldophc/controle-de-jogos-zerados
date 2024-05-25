@@ -8,13 +8,12 @@
       <span class="mygameshub" target="_blank">MyGamesHub</span>
     </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <span class="text-white py-2 px-3 font_inter">{{user}}</span>
       <button
         type="button"
         (click)="goToAccount()"
-        class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+        class="text-white font-medium rounded-lg text-sm px-4 py-2 text-center bg-transparent hover:bg-gray-700 "
       >
-        Minha conta
+      {{user}}
       </button>
       <button
         data-collapse-toggle="navbar-sticky"
@@ -44,6 +43,7 @@
     <div
       class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
       id="navbar-sticky"
+      
     >
       <ul
         class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
@@ -51,7 +51,7 @@
         <li>
           <a
             routerLink="/finalizado"
-            class="block py-2 px-3 rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+            class="block py-2 px-3 rounded font_inter font-semibold md:p-0 hover:text-cyan-400 text-white hover:bg-gray-700 hover:bg-transparent border-gray-700"
             aria-current="page"
           >
             Finalizado</a
@@ -60,15 +60,22 @@
         <li>
           <a
             routerLink="/jogando"
-            class="block py-2 px-3 rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+            class="block py-2 px-3 rounded font_inter font-semibold hover:bg-transparent md:p-0 hover:text-cyan-400 text-white hover:bg-gray-700  border-gray-700"
             >Jogando</a
           >
         </li>
         <li>
           <a
             routerLink="/parado"
-            class="block py-2 px-3 rounded md:hover:bg-transparent md:p-0 md:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+            class="block py-2 px-3 rounded font_inter font-semibold hover:bg-transparent md:p-0 hover:text-cyan-400 text-white hover:bg-gray-700  border-gray-700"
             >Parado</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/register"
+            class="block py-2 px-3 rounded font_inter font-semibold hover:bg-transparent md:p-0 hover:text-cyan-400 text-white hover:bg-gray-700  border-gray-700"
+            >Register</a
           >
         </li>
       </ul>

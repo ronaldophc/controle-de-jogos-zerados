@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<div class="ms-5 me-5">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    #formDir="ngForm"
+    class="max-w-sm m-auto lg:mt-24 lg:mb-24"
+  >
+    <span
+      class="text-white flex justify-center items-center text-xl font_inter p-5 mb-5"
+    >
+      Cadastre-se!</span
+    >
+    <div class="relative z-0 w-full mb-5 form-group">
+      <input
+        type="text"
+        name="floating_name"
+        id="floating_name"
+        class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer"
+        placeholder=" "
+        pattern="([A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+        required
+        formControlName="name"
+      />
+      <label
+        for="floating_name"
+        class="peer-focus:font-medium absolute text-md text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Nome Completo</label
+      >
+      <div *ngIf="name.invalid && formDir.submitted">
+        <p
+          *ngIf="name.errors?.['required']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          Por favor digite o Nome Completo
+        </p>
+        <p
+          *ngIf="name.errors?.['minlength']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          O Nome deve ter pelo menos
+          {{ name.errors?.['minlength'].requiredLength }} caracteres
+        </p>
+      </div>
+    </div>
+    <div class="relative z-0 w-full mb-5 form-group">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer"
+        placeholder=" "
+        required
+        formControlName="email"
+      />
+
+      <label
+        for="email"
+        class="peer-focus:font-medium absolute text-md text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Email</label
+      >
+      <div *ngIf="email.invalid && formDir.submitted">
+        <p
+          *ngIf="email.errors?.['required']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          Por favor digite o Email
+        </p>
+        <p
+          *ngIf="email.errors?.['email']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          Email inválido
+        </p>
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 form-group">
+      <input
+        type="password"
+        name="floating_password"
+        id="floating_password"
+        class="block py-2.5 px-0 w-full text-md bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer"
+        placeholder=""
+        formControlName="password"
+        required
+      />
+      <label
+        for="floating_password"
+        class="peer-focus:font-medium absolute text-md text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Senha</label
+      >
+      <div *ngIf="password.invalid && formDir.submitted">
+        <p
+          *ngIf="password.errors?.['required']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          Por favor digite a Senha
+        </p>
+        <p
+          *ngIf="password.errors?.['minlength']"
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          A Senha deve ter pelo menos
+          {{ password.errors?.['minlength'].requiredLength }} caracteres
+        </p>
+      </div>
+    </div>
+
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+    >
+      Submit
+    </button>
+  </form>
+</div>
