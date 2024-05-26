@@ -11,6 +11,8 @@ import { AccountComponent } from './components/account/account.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewgameComponent } from './components/newgame/newgame.component';
+import { GameService } from './game.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     AccountComponent,
     RegisterComponent,
+    NewgameComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

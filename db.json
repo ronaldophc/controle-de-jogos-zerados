@@ -1,0 +1,20 @@
+{
+  "games": [
+    {
+      "id": "14370",
+      "game": "14370",
+      "platform": "windows",
+      "startDate": "2000-05-20",
+      "endDate": "0001-01-20",
+      "playTime": 2
+    },
+    {
+      "id": "415171",
+      "game": "Valorant",
+      "platform": "windows",
+      "startDate": "0001-05-20",
+      "endDate": "0001-01-01",
+      "playTime": 2
+    }
+  ]
+}
