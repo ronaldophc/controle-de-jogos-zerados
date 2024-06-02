@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'parado', component: StoppedComponent},
   {path: 'account/:idAccount', component: AccountComponent},
   {path: 'newgame', component: NewgameComponent},
+  
 ];
 
 @NgModule({

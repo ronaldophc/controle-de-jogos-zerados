@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NewgameComponent implements OnInit {
   query: string = '';
-  games: any[] = [];
+  gameslist: any[] = [];
   selectedGame: any = null;
   errorMessage: string | null = null;
 
@@ -29,8 +29,16 @@ export class NewgameComponent implements OnInit {
       //mudar a variavel game para o nome do game e criar uma variavel id para o id do game na api
       this.selectedGame = this.gameForm.value;
       this.selectedGame.id = this.gameForm.value.game;
-      this.selectedGame.game = this.games.find((game) => game.id == this.gameForm.value.game).name;
-      this.gameService.addGame(this.selectedGame);
+      this.selectedGame.status = 'finished';
+      this.selectedGame.game = this.gameslist.find((game) => game.id == this.gameForm.value.game).name;
+      this.gameService.addGame(this.selectedGame).subscribe(
+        (response) => {
+          console.log('Data posted successfully:', response);
+        },
+        (error) => {
+          console.error('Error:', error);
+        }
+      );
     }
   }
 
@@ -43,12 +51,12 @@ export class NewgameComponent implements OnInit {
       data.results = data.results.filter((game: any) =>
         game.stores.some((store: any) => store.store.name != 'itch.io')
       );
-      this.games = data.results;
-      console.log(this.games);
+      this.gameslist = data.results;
+      console.log(this.gameslist);
       this.errorMessage = null;
     } catch (error) {
       this.errorMessage = 'Erro ao carregar jogos ' + error;
-      this.games = [];
+      this.gameslist = [];
     }
   }
 
