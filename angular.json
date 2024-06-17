@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mygameshub",
+            "outputPath": { "base": "dist/controle-de-jogos-zerados", "browser": ""},
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -41,6 +41,7 @@
           },
           "configurations": {
             "production": {
+              "sourceMap": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -97,6 +98,12 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "buildTarget": "mygameshub:build:production"
           }
         }
       }

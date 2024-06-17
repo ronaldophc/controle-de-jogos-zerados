@@ -3,20 +3,68 @@
     {
       "id": "415171",
       "game": "Valorant",
-      "platform": "Windows",
-      "startDate": "0001-01-20",
-      "endDate": "0001-01-01",
-      "playTime": 2,
-      "status": "finished"
+      "search": "valorant",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/games/b11/b11127b9ee3c3701bd15b9af3286d20e.jpg"
     },
     {
-      "id": "415171",
-      "game": "Valorant",
-      "platform": "Windows",
-      "startDate": "2000-05-30",
-      "endDate": "2000-06-30",
-      "playTime": 2,
-      "status": "finished"
+      "id": "3498",
+      "game": "Grand Theft Auto V",
+      "search": "grand",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+    },
+    {
+      "id": "22509",
+      "game": "Minecraft",
+      "search": "minecraft",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg"
+    },
+    {
+      "id": "459541",
+      "game": "Cyber Punk 2077 Remake",
+      "search": "cyber punk",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/screenshots/324/3244562e6306fa42805072423b3688f4.jpg"
+    },
+    {
+      "id": "248521",
+      "game": "Valheim",
+      "search": "valheim",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/games/adb/adb59be81367b19c2544457424bcf086.jpg"
+    },
+    {
+      "id": "566578",
+      "game": "Teamfight Manager",
+      "search": "teamfight",
+      "platform": "",
+      "startDate": "",
+      "endDate": "",
+      "playTime": "",
+      "status": "finished",
+      "image": "https://media.rawg.io/media/screenshots/b22/b22e4b16457b9144ba6a13adb35d4b97.jpg"
     }
   ]
 }

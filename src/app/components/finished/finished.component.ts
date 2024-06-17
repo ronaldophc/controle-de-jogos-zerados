@@ -7,14 +7,18 @@ import { GameService } from '../../game.service';
   styleUrl: './finished.component.css',
 })
 export class FinishedComponent {
-  games: any[] = [];
+  games: Promise<any[]> = this.gameService.getGames();
 
-  constructor(private gameService: GameService) {
-    this.gameService.getGames().then((games) => {
-      games.image = this.gameService.getGameImage(games.id);
-      this.games = games;
+  constructor(private gameService: GameService) {}
+
+  deleteGame(gameId: string): void {
+    this.gameService.removeGame(gameId).subscribe({
+      next: () => {
+        window.location.reload();
+      },
+      error: (err) => {
+        console.error(`Error deleting game with id ${gameId}:`, err);
+      }
     });
-    
   }
-
 }

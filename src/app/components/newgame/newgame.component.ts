@@ -16,29 +16,35 @@ export class NewgameComponent implements OnInit {
   constructor(private gameService: GameService) {}
 
   gameForm = new FormGroup({
-    game: new FormControl('', Validators.required),
-    platform: new FormControl('', Validators.required),
-    startDate: new FormControl('', Validators.required),
-    endDate: new FormControl('', Validators.required),
-    playTime: new FormControl('', [Validators.required, Validators.min(1)]),
+    game: new FormControl(''),
+    search: new FormControl(''),
+    platform: new FormControl(''),
+    startDate: new FormControl(''),
+    endDate: new FormControl(''),
+    playTime: new FormControl(''),
   });
 
   onSubmit() {
     if (this.gameForm.valid) {
-      console.log(this.gameForm.value);
       //mudar a variavel game para o nome do game e criar uma variavel id para o id do game na api
       this.selectedGame = this.gameForm.value;
       this.selectedGame.id = this.gameForm.value.game;
       this.selectedGame.status = 'finished';
       this.selectedGame.game = this.gameslist.find((game) => game.id == this.gameForm.value.game).name;
-      this.gameService.addGame(this.selectedGame).subscribe(
-        (response) => {
-          console.log('Data posted successfully:', response);
-        },
-        (error) => {
-          console.error('Error:', error);
-        }
-      );
+      this.gameService.getGameImage(this.selectedGame.id).then((response) => {
+        this.selectedGame.image = response;
+        this.gameService.addGame(this.selectedGame).subscribe(
+          (response) => {
+            console.log('Data posted successfully:', response);
+            window.location.reload();
+          },
+          (error) => {
+            console.error('Error:', error);
+            window.location.reload();
+          }
+        );
+      });
+            
     }
   }
 
@@ -47,12 +53,7 @@ export class NewgameComponent implements OnInit {
   async onSearch() {
     try {
       const data = await this.gameService.searchGames(this.query);
-      //Filtrar jogos que são da store itch.io para não aparecer
-      data.results = data.results.filter((game: any) =>
-        game.stores.some((store: any) => store.store.name != 'itch.io')
-      );
       this.gameslist = data.results;
-      console.log(this.gameslist);
       this.errorMessage = null;
     } catch (error) {
       this.errorMessage = 'Erro ao carregar jogos ' + error;

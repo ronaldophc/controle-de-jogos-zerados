@@ -36,21 +36,34 @@ export class GameService {
       );
   }
   
+  removeGame(gameId: string): Observable<any> {
+    return this.http
+      .delete<any>(`${this.jsonUrl}/${gameId}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  
   private handleError(error: HttpErrorResponse) {
-    // Lógica de tratamento de erro
-    console.error('An error occurred:', error.message);
     return throwError('Something went wrong; please try again later.');
   }
 
   async getGame(gameId: string): Promise<any> {
-    console.log(`teste`);
     return await fetch(`${this.apiUrl}/${gameId}?key=${this.apiKey}`);
   }
 
-  async getGameImage(gameId: string) {
-    this.image = await this.getGame(gameId);
-    console.log(this.image);
-    return this.image;
+  async getGameImage(gameId: string): Promise<void> {
+    try {
+      const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${this.apiKey}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar os detalhes do jogo');
+      }
+      const game = await response.json();
+      console.log(game.background_image);
+      return game.background_image;
+    } catch (error) {
+      console.error('Erro ao buscar os detalhes do jogo:', error);
+    }
   }
 
   async getGames() {
@@ -59,6 +72,7 @@ export class GameService {
       if (!response) {
         throw new Error('Erro ao buscar jogos ' + Error(response));
       }
+      
       return response.json();
     } catch (error) {
       console.error('Erro na requisição:', error);
