@@ -27,10 +27,10 @@ export class AuthService {
     return false;
   }
 
-  register(email: string, name: string, password: string): boolean {
+  register(id: number, email: string, name: string, password: string): boolean {
     // Aqui você faria uma chamada HTTP real para a API de registro
     // Para simplificar, estamos apenas salvando um valor no localStorage
-    localStorage.setItem('users', JSON.stringify({ email, name, password }));
+    localStorage.setItem('users', JSON.stringify({ id, email, name, password }));
     return true;
   }
 

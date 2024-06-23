@@ -13,8 +13,8 @@ export class NavbarComponent {
   isDropdownVisible: boolean = false;
   constructor(private router: Router, private authService: AuthService) {  }
   
-  goToAccount() {
-    this.router.navigate(['/account']);
+  goToAccount(id: number) {
+    this.router.navigate(['/account', id]);
   }
 
   logout() {

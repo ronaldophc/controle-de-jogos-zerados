@@ -1,17 +1,20 @@
 # MyGamesHub
 
-A editar
-Este projeto tem como objetivo implementar progressivamente e de forma didática uma aplicação web inspirada em operações comuns de instituições financeiras (ex: saque, depósito, extrato, saldo, cadastro), sendo o diferencial, a cobrança de taxas de forma abusiva para cada operação realizada pelo cliente.
+MyGamesHub é um sistema web projetado para permitir que os usuários registrem e acompanhem os jogos que já finalizaram. Com este aplicativo, os jogadores podem ter um controle detalhado de suas conquistas, registrando informações como data de início, data de término, tempo jogado e a plataforma utilizada. MyGamesHub proporciona uma maneira organizada e eficiente de acompanhar o progresso e as estatísticas dos jogos completados.
 
-O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
+O frontend da aplicação foi desenvolvido com Angular v17.3 e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
 
 ## Endereço de Deploy - GitHub Pages
 
-?
+https://ronaldophc.github.io/controle-de-jogos-zerados/
 
 ## Protótipo
 
 https://www.figma.com/file/USOyhD9vYCrHOZiCDcIdXE
+
+## Video sobre o projeto no Youtube
+
+https://www.youtube.com/
 
 ## Checklist
 
@@ -26,7 +29,7 @@ https://www.figma.com/file/USOyhD9vYCrHOZiCDcIdXE
 - [X] ID7: O aluno aplicou Pipes de maneira eficaz para formatar a apresentação de dados, garantindo que as informações exibidas sejam legíveis, esteticamente agradáveis e atendam aos requisitos de apresentação específicos para cada contexto.
 #### RA3 - Sincronizar dados entre a interface gráfica e o modelo de dados, aplicando técnicas de binding para manter a consistência.
 - [X] ID8: O aluno demonstrou a compreensão e a aplicação de técnicas de one-way data binding, como Interpolation e Property Binding, para exibir e atualizar dados na interface gráfica de maneira unidirecional.
-- [ ] ID9: O aluno demonstrou a aplicação de técnicas de event binding para capturar eventos do usuário na interface e interagir com o modelo de dados, mantendo a consistência e a sincronização entre os dois.
+- [X] ID9: O aluno demonstrou a aplicação de técnicas de event binding para capturar eventos do usuário na interface e interagir com o modelo de dados, mantendo a consistência e a sincronização entre os dois.
 - [X] ID10: O aluno implementou a técnica de two-way data binding para criar uma sincronização bidirecional automática entre a interface e o modelo de dados, permitindo uma atualização eficiente dos dados em ambos os lados.
 - [X] ID11: O aluno fez uso eficaz de variáveis de template para manipulação dinâmica dos dados na interface gráfica, demonstrando a capacidade de exibir informações de maneira flexível e adaptável.
 #### RA4 - Implementar comunicação eficaz entre componentes, utilizando padrões de comunicação e serviços para compartilhar lógica e dados.
@@ -34,7 +37,7 @@ https://www.figma.com/file/USOyhD9vYCrHOZiCDcIdXE
 - [X] ID13: O aluno utilizou efetivamente as diretivas @Input e @Output para estabelecer uma comunicanção em uma hierarquia de componentes, passando e recebendo dados entre componentes de maneira segura e consistente.
 #### RA5 - Criar interfaces de navegação intuitivas e responsivas, implementando roteamento em aplicações de página única (SPA).
 - [X] ID14: O aluno configurou rotas para diferentes partes da aplicação, permitindo a navegação entre páginas distintas.
-- [ ] ID15: O aluno demonstrou a habilidade de passar dados entre componentes que representam diferentes telas usando parâmetros de rotas, garantindo uma troca eficiente de informações.
+- [X] ID15: O aluno demonstrou a habilidade de passar dados entre componentes que representam diferentes telas usando parâmetros de rotas, garantindo uma troca eficiente de informações.
 - [ ] ID16: O aluno criou uma estrutura de navegação aninhada para representar hierarquias de conteúdo.
 - [X] ID17: O aluno aplicou guardas de rotas para controlar o acesso a rotas específicas da aplicação, assegurando que somente usuários autorizados possam acessar determinadas partes da interface.
 #### RA6 - Realizar requisições assíncronas para serviços web, compreendendo os protocolos e formatos de troca de dados, tratando respostas e erros.

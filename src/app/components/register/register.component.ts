@@ -15,7 +15,7 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit() {
-    if (this.authService.register(this.email, this.name, this.password)) {
+    if (this.authService.register(1, this.email, this.name, this.password)) {
       this.router.navigate(['/login']);
     }
   }
