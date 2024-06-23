@@ -34,6 +34,13 @@ export class AuthService {
     return true;
   }
 
+  edit(id: number, email: string, name: string, password: string) {
+    // Aqui você faria uma chamada HTTP real para a API de registro
+    // Para simplificar, estamos apenas salvando um valor no localStorage
+    localStorage.setItem('currentUser', JSON.stringify({ id, email, name, password }));
+    window.location.reload();
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
   }

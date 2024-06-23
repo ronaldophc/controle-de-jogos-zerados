@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -10,7 +11,7 @@ export class AccountComponent {
   name: string = '';
   displayName: string = '';
   
-  constructor(private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService) {
     this.email = this.authService.getCurrentUser().email;
     this.name = this.authService.getCurrentUser().name;
     this.displayName = this.name;
@@ -18,9 +19,13 @@ export class AccountComponent {
 
   onSubmit() {
     // Atualiza o usuário no localStorage
-    this.authService.register(1, this.email, this.name, this.authService.getCurrentUser().password);
+    this.authService.edit(1, this.email, this.name, this.authService.getCurrentUser().password);
   }
   onKeyPress(event: any) {
     this.displayName = this.name;
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
