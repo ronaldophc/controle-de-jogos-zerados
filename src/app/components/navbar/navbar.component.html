@@ -3,7 +3,6 @@
 <nav class="w-full border-b border-gray-600 fundo">
   <div class="w-full flex flex-wrap items-center justify-between p-1">
     <a routerLink="/" class="flex items-center ps-5 mygameshub">MyGamesHub</a>
-    <!--games-->
     <div>
       <a
         routerLink="/games"
@@ -15,24 +14,7 @@
     </div>
     <!--Account-->
     <div class="flex items-center pe-5">
-      <button type="button" class="flex text-sm rounded-full" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-        <span class="sr-only">Open user menu</span>
-        <span class="text-white font_inter font-semibold">Account</span>
-      </button>
-      <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-gray-700 divide-gray-600" id="user-dropdown">
-        <div class="px-4 py-3">
-          <span class="block text-sm  text-white">{{name}}</span>
-          <span class="block text-sm  truncate text-gray-400">{{email}}</span>
-        </div>
-        <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <a (click)="goToAccount(1)" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white cursor-pointer">Conta</a>
-          </li>
-          <li>
-            <a routerLink="/" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white" (click)="logout()">Sair</a>
-          </li>
-        </ul>
-      </div>
+        <a (click)="goToAccount(1)" class="cursor-pointer font_inter font-semibold text-white">Account</a>
     </div>
     <!--Botão para mobile-->
     <div class="md:hidden">
