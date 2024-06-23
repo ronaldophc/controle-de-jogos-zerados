@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   @Input() name!: string;
   @Input() email!: string;
-  isDropdownVisible: boolean = false;
+  
   constructor(private router: Router, private authService: AuthService) {  }
   
   goToAccount(id: number) {
@@ -22,7 +22,4 @@ export class NavbarComponent {
     this.router.navigate(['/login']);
   }
 
-  toggleDropdown(): void {
-    this.isDropdownVisible = !this.isDropdownVisible;
-  }
 }

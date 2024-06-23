@@ -2,7 +2,7 @@
 
 <nav class="w-full border-b border-gray-600 fundo">
   <div class="w-full flex flex-wrap items-center justify-between p-1">
-    <a href="/" class="flex items-center ps-5 mygameshub">MyGamesHub</a>
+    <a routerLink="/" class="flex items-center ps-5 mygameshub">MyGamesHub</a>
     <!--games-->
     <div>
       <a
@@ -29,7 +29,7 @@
             <a (click)="goToAccount(1)" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white cursor-pointer">Conta</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white" (click)="logout()">Sair</a>
+            <a routerLink="/" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white" (click)="logout()">Sair</a>
           </li>
         </ul>
       </div>
