@@ -62,7 +62,7 @@ https://www.youtube.com/
   - Comando: `npm i`
 - Executar a API Fake (JSON Server) via um dos seguintes comandos: 
   - Ou via Execução explícita: `json-server --watch db.json`
-- O comando para execução do JSON Server deve ser aplicado no diretório raiz do projeto, ou seja, que contém o arquivo `db.json` e `routes.json`.
+- O comando para execução do JSON Server deve ser aplicado no diretório raiz do projeto, ou seja, que contém o arquivo `db.json`.
   - Por padrão, a aplicação JSON Server executa no endereço `localhost:3000`    
 - Abrir um novo terminal pelo VSCode e então executar o projeto Angular
   - Comando: `ng s -o`
