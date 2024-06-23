@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<nav class="w-full border-b border-gray-600 fundo">
+  <div class="w-full flex flex-wrap items-center justify-between p-1">
+    <a routerLink="/" class="flex items-center ps-5 mygameshub">MyGamesHub</a>
+    <!--games-->
+    <div>
+      <a
+        routerLink="/games"
+        class="block py-2 px-3 rounded font_inter font-semibold md:p-0 hover:text-cyan-400 text-white hover:bg-gray-700 hover:bg-transparent border-gray-700"
+        aria-current="page"
+      >
+        Games
+      </a>
+    </div>
+    <!--Account-->
+    <div class="flex items-center pe-5">
+      <button type="button" class="flex text-sm rounded-full" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <span class="text-white font_inter font-semibold">Account</span>
+      </button>
+      <div class="z-50 hidden my-4 text-base list-none divide-y rounded-lg shadow bg-gray-700 divide-gray-600" id="user-dropdown">
+        <div class="px-4 py-3">
+          <span class="block text-sm  text-white">{{name}}</span>
+          <span class="block text-sm  truncate text-gray-400">{{email}}</span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a (click)="goToAccount(1)" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white cursor-pointer">Conta</a>
+          </li>
+          <li>
+            <a routerLink="/" class="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white" (click)="logout()">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--Botão para mobile-->
+    <div class="md:hidden">
+      <button
+        data-collapse-toggle="navbar-sticky"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg sm:hidden focus:outline-none focus:ring-2 text-gray-400 focus:ring-gray-600"
+        aria-controls="navbar-sticky"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Abrir menu</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!--Add game para mobile-->
+  <div
+    class="hidden md:hidden absolute z-10 divs top-12 w-full pb-4 border border-gray-600"
+    id="navbar-sticky"
+  >
+    <app-newgame></app-newgame>
+  </div>
+</nav>

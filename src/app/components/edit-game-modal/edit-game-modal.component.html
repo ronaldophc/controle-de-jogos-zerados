@@ -1,0 +1,88 @@
+<div class="fixed z-10 inset-0 overflow-y-auto">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+      <div class="inline-block align-bottom divs rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+        <form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+          <div class="divs px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="flex justify-center">
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-center text-lg leading-6 font-medium text-gray-300" id="modal-title">
+                  Editar Jogo
+                </h3>
+                <div class="mt-2">
+                    <div>
+                        <label
+                          for="platform"
+                          class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+                          >Plataforma</label
+                        >
+                        <select
+                          id="platform"
+                          formControlName="platform"
+                          class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 divs rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+                        >
+                          <option value="Windows">Windows</option>
+                          <option value="Mac">Mac</option>
+                          <option value="Linux">Linux</option>
+                          <option value="Playstation">Playstation</option>
+                          <option value="Xbox">Xbox</option>
+                          <option value="Android">Android</option>
+                          <option value="IOS">iOS</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          for="startDate"
+                          class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+                          >Data de inicio</label
+                        >
+                        <input
+                          type="date"
+                          id="startDate"
+                          formControlName="startDate"
+                          class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="endDate"
+                          class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+                          >Data finalizado</label
+                        >
+                        <input
+                          type="date"
+                          id="endDate"
+                          formControlName="endDate"
+                          class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="playTime"
+                          class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+                          >Tempo de jogo(horas)</label
+                        >
+                        <input
+                          type="number"
+                          id="playTime"
+                          formControlName="playTime"
+                          min="0"
+                          class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+                        />
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divs px-4 py-3 sm:px-6 sm:flex sm:justify-center">
+            <button type="button" class="sm:me-2 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" (click)="onNoClick()">Cancelar</button>
+            <button type="submit" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-cyan-400 text-base font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:w-auto sm:text-sm">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<div class="ms-5 me-5 flex items-center justify-center">
+  <form
+    [formGroup]="gameForm"
+    (ngSubmit)="onSubmit()"
+    
+  >
+    <span class="text-gray-300 flex justify-center items-center font-bold text-xl font_inter p-5 mb-5">
+      Adicione um novo jogo!</span
+    >
+    <div class="divs">
+      <label
+        for="search"
+        class="text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Procurar jogo</label
+      >
+      <input
+        type="text"
+        id="search"
+        [(ngModel)]="query"
+        (keypress)="onKeyPress($event)"
+        (input)="onSearch()"
+        formControlName="search"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 divs rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      />
+    </div>
+    <div>
+      <label
+        for="game"
+        class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Selecione o Jogo</label
+      >
+      <select
+        id="game"
+        formControlName="game"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 divs rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      >
+        <option *ngFor="let game of gameslist" [value]="game.id">
+          {{ game.name }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label
+        for="platform"
+        class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Plataforma</label
+      >
+      <select
+        id="platform"
+        formControlName="platform"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 divs rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      >
+        <option value="Windows">Windows</option>
+        <option value="Mac">Mac</option>
+        <option value="Linux">Linux</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Xbox">Xbox</option>
+        <option value="Android">Android</option>
+        <option value="IOS">iOS</option>
+      </select>
+    </div>
+    <div>
+      <label
+        for="startDate"
+        class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Data de inicio</label
+      >
+      <input
+        type="date"
+        id="startDate"
+        formControlName="startDate"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      />
+    </div>
+    <div>
+      <label
+        for="endDate"
+        class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Data finalizado</label
+      >
+      <input
+        type="date"
+        id="endDate"
+        formControlName="endDate"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      />
+    </div>
+    <div>
+      <label
+        for="playTime"
+        class="block text-sm font-semibold font_inter text-gray-300 mt-1"
+        >Tempo de jogo(horas)</label
+      >
+      <input
+        type="number"
+        id="playTime"
+        formControlName="playTime"
+        min="0"
+        class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
+      />
+    </div>
+      <p *ngIf="errorMessage != null" class="text-red-600 pt-2 sm:text-sm">{{errorMessage}}</p>
+    <div>
+      <button 
+        [disabled]="gameForm.invalid"
+        type="submit"
+        class="mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-300 bg-cyan-500 hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
+        Adicionar Jogo
+      </button>
+    </div>
+  </form>
+</div>

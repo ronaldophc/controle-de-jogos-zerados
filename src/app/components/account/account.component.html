@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div
+  class="my-4 max-w-screen-md border border-gray-600 px-4 shadow-xl sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 md:mx-auto"
+>
+  <div
+    class="flex flex-col border-b border-gray-600 py-4 sm:flex-row sm:items-start"
+  >
+    <div class="shrink-0 mr-auto sm:py-3">
+      <p class="font-semibold text-gray-300">Detalhes da conta</p>
+      <p class="font-semibold text-gray-300">{{displayName}}</p>
+    </div>
+    
+    <button
+      class="hidden rounded-lg bg-cyan-600 px-4 py-2 font-medium text-white sm:inline focus:outline-none focus:ring hover:bg-cyan-500"
+    >
+      Save
+    </button>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="flex flex-col gap-4 border-b border-gray-600 py-4 sm:flex-row">
+      <p class="w-32 font-medium text-gray-300">Nickname</p>
+      <input [(ngModel)]="name" type="text" name="name" id="name" (ngModelChange)="onKeyPress($event)"
+        class="mb-2 w-full rounded-md border border-gray-600 divs px-2 py-2 outline-none ring-cyan-600 sm:mr-4 sm:mb-0 focus:ring-1 text-white"
+      />
+    </div>
+    <div class="flex flex-col gap-4 border-b border-gray-600 py-4 sm:flex-row">
+      <p class="w-32 font-medium text-gray-300">Email</p>
+      <input [(ngModel)]="email" type="email" name="email" id="email"
+        class="w-full rounded-md border border-gray-600 divs px-2 py-2 outline-none ring-cyan-600 sm:mr-4 focus:ring-1 text-white"
+      />
+    </div>
+
+    <div class="flex justify-end py-4 sm:hidden">
+      <button
+        class="mr-2 rounded-lg border-2 px-4 py-2 font-medium text-gray-500 focus:outline-none focus:ring hover:bg-gray-200"
+      >
+        Cancel
+      </button>
+      <button
+        class="rounded-lg border-2 border-transparent bg-cyan-600 px-4 py-2 font-medium text-white focus:outline-none focus:ring hover:bg-cyan-700"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

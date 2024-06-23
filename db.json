@@ -1,0 +1,14 @@
+{
+  "games": [
+    {
+      "id": "3498",
+      "game": "Grand Theft Auto V",
+      "search": "",
+      "platform": "Windows",
+      "startDate": "2000-02-05",
+      "endDate": "2002-03-06",
+      "playTime": 2,
+      "image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+    }
+  ]
+}
