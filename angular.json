@@ -104,7 +104,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "buildTarget": "mygameshub:build:production"
+            "buildTarget": "mygameshub:build:production",
+            "site": "MyGamesHub"
           }
         }
       }
