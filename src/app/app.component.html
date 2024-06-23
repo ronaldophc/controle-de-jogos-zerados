@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <div class="flex flex-col min-h-screen">
-  <app-navbar [user]="user"></app-navbar>
+  <app-navbar [name]="name" [email]="email" *ngIf="isLoggedIn()"></app-navbar>
   <div class="flex-grow">
     <router-outlet></router-outlet>
   </div>

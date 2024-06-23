@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,24 @@ export class GameService {
   private apiUrl = 'https://api.rawg.io/api/games';
   private apiKey = 'ee1a7db18d154c5ea67d77c6afd59e5d';
   private jsonUrl = 'http://localhost:3000/games';
-  private image: any[] = [];
 
   constructor(private http: HttpClient) {}
+
+  async checkIfGameExists(id: number) {
+    try {
+      const response = await fetch(`${this.jsonUrl}?id=${id}`);
+      return await response.json().then((data) => {
+        if (data.length > 0) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    } catch (error) {
+      console.error('Erro na requisição:', error);
+      throw error;
+    }
+  }
 
   async searchGames(query: string) {
     try {
@@ -28,22 +43,24 @@ export class GameService {
     }
   }
 
+  updateGame(game: any): Observable<any> {
+    return this.http
+      .put<any>(`${this.jsonUrl}/${game.id}`, game)
+      .pipe(catchError(this.handleError));
+  }
+
   addGame(game: any): Observable<any> {
     return this.http
       .post<any>(this.jsonUrl, game)
-      .pipe(
-        catchError(this.handleError)
-      );
+      .pipe(catchError(this.handleError));
   }
-  
+
   removeGame(gameId: string): Observable<any> {
     return this.http
       .delete<any>(`${this.jsonUrl}/${gameId}`)
-      .pipe(
-        catchError(this.handleError)
-      );
+      .pipe(catchError(this.handleError));
   }
-  
+
   private handleError(error: HttpErrorResponse) {
     return throwError('Something went wrong; please try again later.');
   }
@@ -54,12 +71,13 @@ export class GameService {
 
   async getGameImage(gameId: string): Promise<void> {
     try {
-      const response = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${this.apiKey}`);
+      const response = await fetch(
+        `https://api.rawg.io/api/games/${gameId}?key=${this.apiKey}`
+      );
       if (!response.ok) {
         throw new Error('Erro ao buscar os detalhes do jogo');
       }
       const game = await response.json();
-      console.log(game.background_image);
       return game.background_image;
     } catch (error) {
       console.error('Erro ao buscar os detalhes do jogo:', error);
@@ -72,8 +90,8 @@ export class GameService {
       if (!response) {
         throw new Error('Erro ao buscar jogos ' + Error(response));
       }
-      
-      return response.json();
+      const teste = await response.json();
+      return teste;
     } catch (error) {
       console.error('Erro na requisição:', error);
       throw error;

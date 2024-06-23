@@ -1,23 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { GameService } from '../../game.service';
+import { EditGameModalComponent } from '../edit-game-modal/edit-game-modal.component';
 
 @Component({
   selector: 'app-finished',
   templateUrl: './finished.component.html',
-  styleUrl: './finished.component.css',
+  styleUrls: ['./finished.component.css'],
 })
-export class FinishedComponent {
+export class FinishedComponent implements OnInit {
   games: Promise<any[]> = this.gameService.getGames();
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, public dialog: MatDialog) {}
 
-  deleteGame(gameId: string): void {
+  ngOnInit(): void {}
+
+  deleteGame(gameId: any): void {
     this.gameService.removeGame(gameId).subscribe({
       next: () => {
         window.location.reload();
       },
       error: (err) => {
         console.error(`Error deleting game with id ${gameId}:`, err);
+      }
+    });
+  }
+
+  editGame(game: any): void {
+    const dialogRef = this.dialog.open(EditGameModalComponent, {
+      width: '400px',
+      data: { game }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        window.location.reload();
       }
     });
   }

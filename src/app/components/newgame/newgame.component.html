@@ -100,8 +100,10 @@
         class="text-gray-300 mt-1 block w-full py-2 px-3 border border-gray-600 bg-transparent rounded-md shadow-sm focus:outline-none focus:ring-cyan-400 focus:border-cyan-400 sm:text-sm"
       />
     </div>
+      <p *ngIf="errorMessage != null" class="text-red-600 pt-2 sm:text-sm">{{errorMessage}}</p>
     <div>
       <button 
+        [disabled]="gameForm.invalid"
         type="submit"
         class="mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-gray-300 bg-cyan-500 hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400">
         Adicionar Jogo

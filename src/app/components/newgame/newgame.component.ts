@@ -1,6 +1,8 @@
 import { GameService } from './../../game.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newgame',
@@ -13,23 +15,28 @@ export class NewgameComponent implements OnInit {
   selectedGame: any = null;
   errorMessage: string | null = null;
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private authService: AuthService, private router: Router) {}
 
   gameForm = new FormGroup({
-    game: new FormControl(''),
+    game: new FormControl('', Validators.required),
     search: new FormControl(''),
-    platform: new FormControl(''),
-    startDate: new FormControl(''),
-    endDate: new FormControl(''),
-    playTime: new FormControl(''),
+    platform: new FormControl('', Validators.required),
+    startDate: new FormControl('', [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')]),
+    endDate: new FormControl('', [Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')]),
+    playTime: new FormControl('', [Validators.required, Validators.min(1)]),
   });
 
-  onSubmit() {
+  async onSubmit() {
     if (this.gameForm.valid) {
-      //mudar a variavel game para o nome do game e criar uma variavel id para o id do game na api
+      
       this.selectedGame = this.gameForm.value;
+      const teste = await this.gameService.checkIfGameExists(this.selectedGame.game);
+      if(teste) {
+        this.errorMessage = 'Jogo já cadastrado';
+        return;
+      }
+      this.errorMessage = null;
       this.selectedGame.id = this.gameForm.value.game;
-      this.selectedGame.status = 'finished';
       this.selectedGame.game = this.gameslist.find((game) => game.id == this.gameForm.value.game).name;
       this.gameService.getGameImage(this.selectedGame.id).then((response) => {
         this.selectedGame.image = response;
